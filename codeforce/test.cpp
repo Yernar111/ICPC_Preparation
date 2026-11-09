@@ -1,10 +1,9 @@
 #include <iostream>
 using namespace std;
-
-int a[100];
-int n,q;
+int q,n;
 void solve(){
     cin>>n;
+    int a[n];
     for(int i=0;i<n;i++){
         cin>>a[i];
     }

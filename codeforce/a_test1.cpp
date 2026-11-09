@@ -1,28 +1,32 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
-
+int q,n,m;
 void solve(){
-    int n,m=0;
     cin>>n;
-    int a[n];
+    int a[n],b[n];
     for(int i=0;i<n;i++){
         cin>>a[i];
-        m+=a[i];
     }
-    sort(a,a+n);
-    if (a[n-1]==1 || a[n-2]==1){
-        cout<<-1;
+    for(int i=0;i<n;i++){
+        cin>>b[i];
     }
-    else{
-        cout<<m-1;
+    int k=0;
+    for(int i=1;i<n;i++){
+        if (abs(a[i]-a[i-1])+abs(b[i]-b[i-1])>abs(b[i]-a[i-1])+abs(a[i]-b[i-1])){
+            int t=a[i];
+            a[i]=b[i];
+            b[i]=t;
+            k+=abs(a[i]-a[i-1])+abs(b[i]-b[i-1]);
+        }
     }
+    cout<<k;
+    
+    
 
     cout<<"\n";
 }
 
 int main(){
-    int q;
     cin>>q;
     while (q--){
         solve();
